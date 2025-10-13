@@ -1,0 +1,97 @@
+@import url('fonts.css');
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'imb plex mono';
+}
+
+body {
+  background-color: #101010;
+  color: aliceblue;
+}
+
+a { 
+  text-decoration: none;
+  color: crimson;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.d-flex {display: flex;}
+
+.mt-5 {margin-top: 5px;}
+.mt-10 {margin-top: 10px;}
+.mt-15 {margin-top: 15px;}
+.mt-20 {margin-top: 20px;}
+.mt-25 {margin-top: 25px;}
+.mt-30 {margin-top: 30px;}
+
+.mb-5 {margin-bottom: 5px;}
+.mb-10 {margin-bottom: 10px;}
+.mb-15 {margin-bottom: 15px;}
+.mb-20 {margin-bottom: 20px;}
+.mb-25 {margin-bottom: 25px;}
+.mb-30 {margin-bottom: 30px;}
+
+.block { 
+  border: 1px solid crimson;
+  background-color: #151515;
+  border-radius: 12px;
+  flex-direction: row;
+  text-align: center;
+  padding: 15px 20px 15px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.liquid-block {
+  border: 1px solid #fff;
+  background-color: #e3dede32;
+  border-radius: 12px;
+  flex-direction: row;
+  text-align: center;
+  padding: 15px 20px 15px 20px;
+}
+
+.input-form {
+  border: none;
+  background-color: #222;
+  font-size: 18px;
+  padding: 7px;
+  border-radius: 6px;
+  color: aliceblue;
+}
+
+.btn {
+  border: none;
+  background-color: rgb(184, 12, 46);
+  color: rgb(239, 225, 22);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 7px;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background-color: rgb(136, 13, 38);
+  color: rgb(194, 183, 28);
+  transition: 10ms;
+}
+
+
+.back-section {
+  width: 100%;
+  height: 450px;
+  flex-direction: row;
+  padding: 15px 20px 15px 20px;
+  background: linear-gradient(353deg,rgba(207, 196, 50, 1) 25%, rgba(166, 25, 41, 1) 72%);
+}
