@@ -3,30 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/red_playground_logo.png" />
+    <link rel="apple-touch-icon" type="image/png" href="images/red_playground_logo.png">
     <link rel="stylesheet" href="css/main.css">
+    <script src="scripts/calculator.js" defer></script>
+    <script src="scripts/guess_number.js" defer></script>
+    <script src="scripts/exchange_values.js" defer></script>
+    <script src="scripts/todo_list.js" defer></script>
     <title>JS Playground</title>
 </head>
 <body>
-    <div class="container">
-        <h1>JS Playground</h1>
-        <p>I would like to present my first web project to you!</p>
-        <a href="https://google.com/" target="_blank">Something link...</a>
-
-        <div class="block">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quis eum ipsum culpa officia ipsa, voluptatibus amet praesentium laborum qui laudantium distinctio atque placeat vel temporibus voluptatum mollitia repellat nesciunt?
+    <header class="back-section mb-20">
+        <div class="container hero-inner">
+            <h1 class="hero-title gradient-text">JS Playground<img class="hero-image" src="images/violet_playground_logo.png" width="60"/></h1>
+            <p class="hero__tagline">
+                A playground for JavaScript experiments. 
+            <span class="hero__tagline--warn">Warning: you might like it.</span>
+            </p>
+            <p class="hero__sub">
+                Collection of mini projects and DOM experiments — try the widgets below.
+            </p>
         </div>
+    </header>
 
-        <input type="text" class="input-form" placeholder="Some Text"/>
-
-        <button class="btn">Something button</button>
-    </div>
-    <section class="back-section mt-20">
+    <main>
         <div class="container">
-            <div class="liquid-block mb-20">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique voluptatum natus eum cumque assumenda facere cupiditate rerum suscipit id atque asperiores reprehenderit adipisci sapiente dolor aliquam, nobis modi accusamus.</p>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid vel repellendus ducimus itaque minima suscipit, quaerat veritatis velit voluptatem iste quae fugit dolor accusantium necessitatibus, explicabo dolores recusandae perferendis!</p>
+            <section class="block">
+                <h2>Calculator</h2>
+                <input class="input-form mt-10 mb-10" style="width: 308px;" type="text" id="calculation-field" value=""><br/>
+                <div class="list-buttons">
+                    <input class="btn mb-5" type="button" value="⠀ 1 ⠀" data-id="1">
+                    <input class="btn mb-5" type="button" value="⠀ 2 ⠀" data-id="2">  
+                    <input class="btn mb-5" type="button" value="⠀ 3 ⠀" data-id="3">
+                    <input class="btn mb-5" type="button" value="⠀ C ⠀" data-id="C"><br/>  
+                    <input class="btn mb-5" type="button" value="⠀ 4 ⠀" data-id="4">  
+                    <input class="btn mb-5" type="button" value="⠀ 5 ⠀" data-id="5">  
+                    <input class="btn mb-5" type="button" value="⠀ 6 ⠀" data-id="6">
+                    <input class="btn mb-5" type="button" value="⠀ / ⠀" data-id="/"><br/>
+                    <input class="btn mb-5" type="button" value="⠀ 7 ⠀" data-id="7">  
+                    <input class="btn mb-5" type="button" value="⠀ 8 ⠀" data-id="8">  
+                    <input class="btn mb-5" type="button" value="⠀ 9 ⠀" data-id="9">
+                    <input class="btn mb-5" type="button" value="⠀ * ⠀" data-id="*"><br/>
+                    <input class="btn mb-5" type="button" value="⠀ - ⠀" data-id="-">
+                    <input class="btn mb-5" type="button" value="⠀ 0 ⠀" data-id="0">
+                    <input class="btn mb-5" type="button" value="⠀ + ⠀" data-id="+">
+                    <input class="btn mb-5" type="button" value="⠀ = ⠀" data-id="=">      
+                </div>
+            </section>
+            <section class="block"> 
+                <h2>Exchange Currencies</h2>
+                <input type="text" placeholder="Type the value" class="input-form mt-10" id="input-number"><br/>
+                <label for="from-currency">Base currency</label>
+                <select id="from-currency" class="mt-10">
+                    <option value="usd">Dollar</option>
+                    <option value="rub">Ruble</option>
+                    <option value="try">Lira</option>
+                    <option value="eur">Euro</option>
+                </select><br/>
+
+                <label for="to-currency">Target currency</label>
+                <select id="to-currency" class="mt-10">
+                    <option value="usd">Dollar</option>
+                    <option value="rub">Ruble</option>
+                    <option value="try">Lira</option>
+                    <option value="eur">Euro</option>
+                </select><br/>
+                <p class="mt-20">Result: <span id="result" style="color:chocolate"></span> <span id="symbol" style="color:chocolate"></span></p>
+                <button id="convert" class="btn mt-20" style="width: 242px;">Convert</button>
+            </section>
+            <section class="block">
+                <h2>ToDo List</h2>
+                <div class="d-flex mt-10 mb-10">
+                    <input type="text" class="input-form w-100" placeholder="Write down your note" id="write-task-input">
+                    <button class="btn ml-10" id="add-task-btn">Create</button>
+                </div>
+                <ul id="task-list"></ul>
+            </section>
+            <section class="block">
+                <h2>Guess the Number</h2>
+                <input type="text" class="input-form mt-10" id="user-number-input" />
+                <button class="btn mt-10" id="random-number-btn">Think a number</button>
+                <p class="mt-20">Result: <span style="color:chocolate" id="guess-result">Press the button for think a number ...</span></p>
+            </section>
         </div>
-    </section>
+    </main>
+    <footer class="mt-20">
+        <div class="container">
+            <p>&copy; This project was created by Roman Bozhok 2025</p>
+            <a href="https://github.com/QueenCDN" target="_blank">Github</a> <a href="https://t.me/Fonerge_Queen" target="_blank">Telegram</a>
+        </div>
+    </footer>
 </body>
 </html>
