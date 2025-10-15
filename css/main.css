@@ -247,7 +247,7 @@ footer .container a:hover {
 
 .carousel__track {
   display: flex;
-  transition: transform 0.6s ease;
+  /* transition: transform 0.6s ease; */
 }
 
 .carousel__slide {
@@ -257,7 +257,10 @@ footer .container a:hover {
   align-items: center;
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0.5;
-  transform: scale(0.8);
+  position: absolute;
+  top: 15%;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0.1);
 }
 
 .carousel__slide img {
@@ -267,13 +270,11 @@ footer .container a:hover {
   object-fit: cover;
 }
 
-/* Центр активного слайда */
 .carousel__slide.active {
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
 
-/* Стрелки */
 .carousel__btn {
   position: absolute;
   top: 50%;
@@ -301,12 +302,11 @@ footer .container a:hover {
   right: 10px;
 }
 
-/* 🔹 Адаптив */
 @media (max-width: 768px) {
   .carousel__slide img {
-    width: 300px;
+    width: 250px;
   }
   .carousel {
-    height: 300px;
+    height: 250px;
   }
 }

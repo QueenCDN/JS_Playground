@@ -1,23 +1,35 @@
-const items = document.querySelectorAll('.carousel-item');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-let current = 0;
+const track = document.querySelector('.carousel__track');
+const slides = Array.from(track.children);
+const nextBtn = document.querySelector('.carousel__btn.next');
+const prevBtn = document.querySelector('.carousel__btn.prev');
 
-function updateCarousel() {
-items.forEach((item, index) => {
-    item.classList.remove('active');
-    if (index === current) item.classList.add('active');
-});
+let currentIndex = 0;
+
+function updateSlidePosition() {
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        const offset = (index - currentIndex) * 100;
+        slide.style.transform = `translateX(${offset}%) scale(${index === currentIndex ? 1 : 0.8})`;
+        slide.style.opacity = index === currentIndex ? 1 : 0.5;
+    });
+    slides[currentIndex].classList.add('active');
 }
 
 nextBtn.addEventListener('click', () => {
-current = (current + 1) % items.length;
-updateCarousel();
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
 });
 
 prevBtn.addEventListener('click', () => {
-current = (current - 1 + items.length) % items.length;
-updateCarousel();
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
 });
 
-updateCarousel();
+slides.forEach((slide, index) => {
+    slide.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlidePosition();
+    });
+});
+
+updateSlidePosition();
