@@ -85,6 +85,23 @@
                 <button class="btn mt-10" id="random-number-btn">Think a number</button>
                 <p class="mt-20">Result: <span style="color:chocolate" id="guess-result">Press the button for think a number ...</span></p>
             </section>
+            <section class="block carousel">
+                <button class="carousel__btn prev">&#10094;</button>
+                
+                <div class="carousel__track-container">
+                    <ul class="carousel__track">
+                    <li class="carousel__slide"><img src="images/cat_1.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/cat_2.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/dog_1.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/dog_2.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/dog_3.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/hamster_1.jpg" alt=""></li>
+                    <li class="carousel__slide"><img src="images/hamster_2.jpg" alt=""></li>
+                    </ul>
+                </div>
+                
+                <button class="carousel__btn next">&#10095;</button>
+            </section>
         </div>
     </main>
     <footer class="mt-20">
@@ -93,5 +110,42 @@
             <a href="https://github.com/QueenCDN" target="_blank">Github</a> <a href="https://t.me/Fonerge_Queen" target="_blank">Telegram</a>
         </div>
     </footer>
+    <script>
+        const track = document.querySelector('.carousel__track');
+        const slides = Array.from(track.children);
+        const nextBtn = document.querySelector('.carousel__btn.next');
+        const prevBtn = document.querySelector('.carousel__btn.prev');
+
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            const offset = (index - currentIndex) * 100;
+            slide.style.transform = `translateX(${offset}%) scale(${index === currentIndex ? 1 : 0.8})`;
+            slide.style.opacity = index === currentIndex ? 1 : 0.5;
+        });
+        slides[currentIndex].classList.add('active');
+        }
+
+        nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlidePosition();
+        });
+
+        prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlidePosition();
+        });
+
+        slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlidePosition();
+        });
+        });
+
+        updateSlidePosition();
+    </script>
 </body>
 </html>
