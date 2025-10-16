@@ -310,3 +310,41 @@ footer .container a:hover {
     height: 250px;
   }
 }
+
+.list-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, max-content); 
+  justify-content: center; 
+  gap: 6px;
+}
+
+.list-buttons .btn {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 60px;      
+}
+
+
+#calculation-field {
+  max-width: 272px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+}
+
+@media (max-width: 365px) {
+  .list-buttons .btn {
+    font-size: 16px;
+    padding: 8px;
+    max-width: 50px; 
+  }
+
+  #calculation-field {
+    max-width: none;
+    width: 100%;
+  }
+}
+
